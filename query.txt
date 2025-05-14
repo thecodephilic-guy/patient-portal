@@ -1,0 +1,67 @@
+1. Login as doctor:
+
+Req body:
+{
+  "email": "doctor@hospital.com",
+  "password": "password123"
+}
+
+2. Login as receptionist:
+
+Req body:
+{
+  "email": "receptionist@hospital.com",
+  "password": "password123"
+}
+
+3. Admin only — creates doctor or receptionist:
+
+Req Body:
+{
+  "email": "receptionist@example.com",
+  "password": "qwerty",
+  "name": "Jane Smith",
+  "role": "receptionist"
+}
+
+Receptionist only — registers a new patient:
+
+Req Body:
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "john.doe@example.com",
+  "phone": "9876543210",
+  "date_of_birth": "1990-06-15",
+  "gender": "male",
+  "address": "123 Street, City",
+  "medical_history": "Hypertension",
+  "allergies": "Peanuts"
+}
+
+Doctor or Receptionist — get all patients:
+
+Header:
+Authorization: Bearer <JWT>
+
+Doctor or Receptionist — get a specific patient by ID:
+
+Header:
+Authorization: Bearer <JWT>
+
+Doctor or Receptionist — update patient details: (id passed in url along with JWT as Authorization headher)
+
+Req Body:
+{
+  "phone": "9876500000",
+  "address": "Updated Address, New City",
+  "medical_history": "Diabetes, Hypertension"
+}
+
+Receptionist only — delete a patient:
+
+Header:
+Authorization: Bearer <JWT>
+
+
+res token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6InJlY2VwdGlvbmlzdEBob3NwaXRhbC5jb20iLCJyb2xlIjoicmVjZXB0aW9uaXN0IiwiZXhwIjoxNzQ3Mjc2NjMzLCJuYmYiOjE3NDcxOTAyMzMsImlhdCI6MTc0NzE5MDIzM30.wfSOgYl826ZPii6u6HhtcP-PZHODlnJ7PxmnMLVUzaM
